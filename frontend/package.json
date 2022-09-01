@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
+    "vue-axios": "^3.4.1",
     "vuetify": "^3.0.0-beta.0",
-    "webfontloader": "^1.0.0"
+    "vuex": "^4.0.2",
+    "webfontloader": "^1.0.0",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -26,7 +30,6 @@
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.5.5",
-    "vuetify-loader": "^1.7.0",
     "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "eslintConfig": {

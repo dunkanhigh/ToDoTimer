@@ -1,19 +1,22 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld/>
+      <NavBar />
+      <ToDoList />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar.vue'
+import ToDoList from './components/ToDoList.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    NavBar,
+    ToDoList
   },
 
   data: () => ({

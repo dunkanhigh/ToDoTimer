@@ -1,16 +1,16 @@
-import HTTP from './common'
+import { HTTP } from './common'
 
 export const ToDo = {
     create(config) {
-        return HTTP.post('/todo/', config).then(response => {
+        return HTTP.post('/todos/', config).then(response => {
             return response.data
         })
     },
-    delete(config) {
-        return HTTP.delete(`/todo/${todo.id}`)
+    delete(todo) {
+        return HTTP.delete(`/todos/${todo.id}`)
     },
     list() {
-        return HTTP.get('/todo/').then(response => {
+        return HTTP.get('/todos/').then(response => {
             return response.data
         })
     }
