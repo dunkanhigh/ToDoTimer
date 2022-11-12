@@ -1,10 +1,16 @@
 <template>
     <div class="sign-up">
-        <form v-on:sumbit.prevent="sumbitForm">
-            <input type="email" name='email' v-model='email' />
-            <input type='password' name="password" v-model='password' />
-            <button type="sumbit">Sign up</button>
-        </form>
+        <v-form v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
+            <!-- <input type="email" name='email' v-model='email' /> -->
+            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+            <!-- <input type='password' name="password" v-model='password' /> -->
+            <v-text-field v-model='password' :rules="passwordRules" label='Password' required>
+            </v-text-field>
+            <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4" @click="validate">
+                Sign Up
+            </v-btn>
+            <!-- <button type="sumbit">Sign up</button> -->
+        </v-form>
     </div>
 </template>
 <script>
@@ -13,14 +19,22 @@ export default {
     name: "SignUp",
     data() {
         return {
+            valid: true,
             username: "",
             password: "",
-            email: ""
+            passwordRules: [
+                p => !!p || 'Password is required',
+                p => (p && 5 <= p.length) || 'Name must be more than 5 characters',
+            ],
+            email: "",
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            ],
         };
     },
     methods: {
         sumbitForm() {
-
             const formData = {
                 email: this.email,
                 username: this.email,
