@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'ToDo',
-    'corsheaders',
     'rest_framework.authtoken',
     'djoser',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
