@@ -32,9 +32,9 @@ export default {
                 .then(response => {
                     this.$router.push('/sing-in')
                     console.log(response)
-                }
+                })
                 .catch()
-                )
+
         }
 
     }
