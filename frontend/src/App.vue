@@ -39,7 +39,6 @@ export default {
       axios.defaults.headers.common['Authorization'] = 'Token ' + token
     } else {
       axios.defaults.headers.common['Authorization'] = ''
-
     }
   }
 }

@@ -10,8 +10,8 @@ const routes = [
     },
     {
         path: '/sign-up',
-        name: 'Sign-up',
-        conponent: SignUp,
+        name: 'SignUp',
+        component: SignUp,
     }
 ]
 const router = createRouter({

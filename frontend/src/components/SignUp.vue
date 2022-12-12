@@ -1,7 +1,12 @@
 <template>
-    <div>
+    <div class="sign-up">
         <v-form v-on:submit.prevent="SumbitForm">
-
+            <v-text-field v-model="email" label="E-mail"></v-text-field>
+            <v-text-field v-model="password" label="Password"
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"></v-text-field>
+            <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
+                Sign Up
+            </v-btn>
         </v-form>
     </div>
 </template>
@@ -12,8 +17,8 @@ export default {
     name: 'SignUp',
     data() {
         return {
-            name: "",
-            surname: '',
+            show1: false,
+            valid: true,
             email: '',
             password: '',
         }
@@ -21,19 +26,20 @@ export default {
     methods: {
         SumbitForm() {
             const formData = {
-                email: this.email,
                 username: this.email,
+                email: this.email,
                 password: this.password,
-                name: this.name,
-                surname: this.surname
+                re_password: this.password
             };
             axios
-                .post('api/v1/token/login', formData)
+                .post('/api/v1/users/', formData)
                 .then(response => {
-                    this.$router.push('/sing-in')
+                    this.$router.push('/sign-in')
                     console.log(response)
                 })
-                .catch()
+                .catch(error => {
+                    console.log(error)
+                })
 
         }
 

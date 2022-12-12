@@ -1,11 +1,7 @@
 <template>
-    <div class="sign-up">
+    <div class="sign-in">
         <v-form v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
-            <!-- <input type="email" name='email' v-model='email' /> -->
             <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-            <!-- <input type='password' name="password" v-model='password' /> -->
-            <!-- <v-text-field v-model='password' :rules="passwordRules" label='Password' required> -->
-            <!-- </v-text-field> -->
             <v-text-field v-model="password" name="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                 :rules="passwordRules" :type="show1 ? 'text' : 'password'" label="Password"
                 @click:append="show1 = !show1" required>
@@ -13,7 +9,6 @@
             <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
                 Sign In
             </v-btn>
-            <!-- <button type="sumbit">Sign up</button> -->
         </v-form>
     </div>
 </template>
@@ -41,14 +36,13 @@ export default {
     methods: {
         sumbitForm() {
             const formData = {
-                email: this.email,
                 username: this.email,
                 password: this.password,
             };
             axios
-                .post("api/v1/users/", formData)
+                .post("/api/v1/login/", formData)
                 .then(response => {
-                    this.$router.push("/log-in");
+                    this.$router.push("/sing-in");
                     console.log(response);
                 })
                 .catch(error => {
