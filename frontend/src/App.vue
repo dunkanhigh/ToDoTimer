@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/sign-up">SignUp</router-link> |
-    <router-link to="/log-in">LogIn</router-link>
+    <router-link to="/sign-in">Sign In</router-link> |
+    <router-link to="/sign-up">Sign Up</router-link>
   </nav>
   <router-view />
 </template>
@@ -28,3 +28,19 @@ nav {
   }
 }
 </style>
+<script>
+import axios from 'axios'
+export default {
+  name: 'App',
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = 'Token ' + token
+    } else {
+      axios.defaults.headers.common['Authorization'] = ''
+
+    }
+  }
+}
+</script>

@@ -1,17 +1,17 @@
-import SignUp from '../components/SignUp.vue';
-import LogIn from '../components/LogIn.vue'
+import SignIn from '../components/SignIn.vue';
+import SignUp from '../components/SignUp.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {
-        path: '/sign-up',
-        name: 'SignUp',
-        component: SignUp,
+        path: '/sign-in',
+        name: 'SignIn',
+        component: SignIn,
     },
     {
-        path: '/login-in',
-        name: 'LogIn',
-        conponent: LogIn,
+        path: '/sign-up',
+        name: 'Sign-up',
+        conponent: SignUp,
     }
 ]
 const router = createRouter({

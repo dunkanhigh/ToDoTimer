@@ -1,55 +1,42 @@
 <template>
-    <div class="sign-up">
-        <v-form v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
-            <!-- <input type="email" name='email' v-model='email' /> -->
-            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-            <!-- <input type='password' name="password" v-model='password' /> -->
-            <v-text-field v-model='password' :rules="passwordRules" label='Password' required>
-            </v-text-field>
-            <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4" @click="validate">
-                Sign Up
-            </v-btn>
-            <!-- <button type="sumbit">Sign up</button> -->
+    <div>
+        <v-form v-on:submit.prevent="SumbitForm">
+
         </v-form>
     </div>
 </template>
 <script>
 import axios from 'axios';
+
 export default {
-    name: "SignUp",
+    name: 'SignUp',
     data() {
         return {
-            valid: true,
-            username: "",
-            password: "",
-            passwordRules: [
-                p => !!p || 'Password is required',
-                p => (p && 5 <= p.length) || 'Name must be more than 5 characters',
-            ],
-            email: "",
-            emailRules: [
-                v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-            ],
-        };
+            name: "",
+            surname: '',
+            email: '',
+            password: '',
+        }
     },
     methods: {
-        sumbitForm() {
+        SumbitForm() {
             const formData = {
                 email: this.email,
                 username: this.email,
                 password: this.password,
+                name: this.name,
+                surname: this.surname
             };
             axios
-                .post("api/v1/users/", formData)
+                .post('api/v1/token/login', formData)
                 .then(response => {
-                    this.$router.push("/log-in");
-                    console.log(response);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+                    this.$router.push('/sing-in')
+                    console.log(response)
+                }
+                .catch()
+                )
         }
-    },
+
+    }
 }
 </script>
