@@ -1,41 +1,42 @@
 <template>
-    <div class="sign-up">
-        <form v-on:sumbit.prevent="sumbitForm">
-            <input type="email" name='email' v-model='email' />
-            <input type='password' name="password" v-model='password' />
-            <button type="sumbit">Sign up</button>
-        </form>
+    <div>
+        <v-form v-on:submit.prevent="SumbitForm">
+
+        </v-form>
     </div>
 </template>
 <script>
 import axios from 'axios';
+
 export default {
-    name: "SignUp",
+    name: 'SignUp',
     data() {
         return {
-            username: "",
-            password: "",
-            email: ""
-        };
+            name: "",
+            surname: '',
+            email: '',
+            password: '',
+        }
     },
     methods: {
-        sumbitForm() {
-
+        SumbitForm() {
             const formData = {
                 email: this.email,
                 username: this.email,
                 password: this.password,
+                name: this.name,
+                surname: this.surname
             };
             axios
-                .post("api/v1/users/", formData)
+                .post('api/v1/token/login', formData)
                 .then(response => {
-                    this.$router.push("/log-in");
-                    console.log(response);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+                    this.$router.push('/sing-in')
+                    console.log(response)
+                }
+                .catch()
+                )
         }
-    },
+
+    }
 }
 </script>
