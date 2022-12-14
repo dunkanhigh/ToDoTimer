@@ -27,9 +27,7 @@ export default {
         SumbitForm() {
             const formData = {
                 username: this.email,
-                email: this.email,
                 password: this.password,
-                re_password: this.password
             };
             axios
                 .post('/api/v1/users/', formData)
