@@ -1,10 +1,9 @@
 <template>
     <div class="sign-in">
-
-        <v-form v-on:submit.prevent="SumbitForm">
-            <v-text-field v-model="email" label="E-mail"></v-text-field>
-            <v-text-field v-model="password" label="Password"
-                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"></v-text-field>
+        <v-form v-on:submit.prevent="SumbitForm" v-model="valid" lazy-validation>
+            <v-text-field v-model="email" label="E-mail" required :rules="emailRules"></v-text-field>
+            <v-text-field v-model="password" label="Password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" required
+                :rules="passwordRules"></v-text-field>
             <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
                 Sign In
             </v-btn>
@@ -19,8 +18,16 @@ export default {
         return {
             show1: false,
             valid: true,
-            email: '',
-            password: '',
+            username: "",
+            password: "",
+            passwordRules: [
+                p => !!p || 'Password is required',
+            ],
+            email: "",
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            ],
         };
     },
     methods: {
