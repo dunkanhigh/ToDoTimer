@@ -1,13 +1,26 @@
 <template>
-    <div class="sign-in">
-        <v-form v-on:submit.prevent="SumbitForm" v-model="valid" lazy-validation>
-            <v-text-field v-model="email" label="E-mail" required :rules="emailRules"></v-text-field>
-            <v-text-field v-model="password" label="Password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" required
-                :rules="passwordRules"></v-text-field>
-            <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
-                Sign In
-            </v-btn>
-        </v-form>
+    <div class="sign-in mt-8">
+
+        <v-row justify="center">
+            <v-col cols="12" xs="10" sm="5" md="3" lg="2">
+                <span class="text-h4" style="color: teal;">
+                    Sing In to FocusTimer
+                </span>
+                <v-card class="pa-5" elevation="7">
+                    <v-form v-on:submit.prevent="SumbitForm" v-model="valid" lazy-validation>
+                        <v-text-field v-model="email" label="E-mail" required :rules="emailRules"></v-text-field>
+                        <v-text-field v-model="password" label="Password"
+                            :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" required
+                            :type="show1 ? 'text' : 'password'" :rules="passwordRules"
+                            @click:append-inner="show1 = !show1"></v-text-field>
+                        <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
+                            Sign In
+                        </v-btn>
+                    </v-form>
+                </v-card>
+            </v-col>
+        </v-row>
+
     </div>
 </template>
 <script>
