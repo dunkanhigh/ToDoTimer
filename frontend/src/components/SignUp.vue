@@ -1,15 +1,25 @@
 <template>
-    <div class="sign-up">
-        <v-form v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
-            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-            <v-text-field v-model="password" name="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                :rules="passwordRules" :type="show1 ? 'text' : 'password'" label="Password"
-                @click:append="show1 = !show1" required>
-            </v-text-field>
-            <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
-                Sign Up
-            </v-btn>
-        </v-form>
+    <div class="sign-up" style="padding-top: 5em;">
+        <v-row justify="center">
+            <v-col cols="12" xs="12" sm="7" md="3">
+                <v-card class="pa-5" elevation="7">
+                    <span class="text-h4" style="color: teal;">
+                        Sing Up to FocusTimer
+                    </span>
+                    <v-form class="mt-6" v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
+                        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                        <v-text-field class="input-group--focused" v-model="password" name="password"
+                            :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="passwordRules"
+                            :type="show1 ? 'text' : 'password'" label="Password" @click:append="show1 = !show1"
+                            required>
+                        </v-text-field>
+                        <v-btn type="sumbit" :disabled="!valid" color="success" class="mr-4">
+                            Sign Up
+                        </v-btn>
+                    </v-form>
+                </v-card>
+            </v-col>
+        </v-row>
     </div>
 </template>
 <script>

@@ -1,19 +1,14 @@
 <template>
 
-    <v-app-bar absolute>
-        <v-toolbar-title>FocusTimer</v-toolbar-title>
-        <a>
-            <h3 class="font-weight-regular">ToDos</h3>
-        </a>
+    <v-app-bar style="position:fixed">
         <v-spacer></v-spacer>
-        <!-- <v-btn to="/sign-in">
-                Sign In
-            </v-btn> -->
-
+        <h3 class="font-weight-regular">FocusTimer</h3>
+        <v-spacer></v-spacer>
+        <h3 class="font-weight-regular">ToDos</h3>
+        <v-spacer></v-spacer>
         <button @click="$router.push('/sign-up')" class='button1'> Sing Up</button>
-
+        <v-spacer></v-spacer>
     </v-app-bar>
-
 </template>
 <script>
 export default {

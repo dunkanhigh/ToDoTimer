@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <NavBar />
-    <router-view />
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
   <!-- <nav>
     <router-link to="/sign-in">Sign In</router-link> |
