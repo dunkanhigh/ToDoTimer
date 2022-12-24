@@ -6,12 +6,12 @@
                     Sing Up to FocusTimer
                 </span>
                 <v-card class="pa-5" elevation="7">
-                    <v-form v-on:sumbit.prevent="sumbitForm" ref="form" v-model="valid" lazy-validation>
-                        <v-text-field v-model="firstname" label="First Name"
+                    <v-form v-on:submit.prevent="SumbitForm" ref="form" v-model="valid" lazy-validation>
+                        <!-- <v-text-field v-model="firstname" label="First Name"
                             :rules="rules.FirstNameRules"></v-text-field>
-                        <v-text-field v-model="lastname" label="Last Name" :rules="rules.LastNameRules"></v-text-field>
+                        <v-text-field v-model="lastname" label="Last Name" :rules="rules.LastNameRules"></v-text-field> -->
                         <v-text-field v-model="email" :rules="rules.emailRules" label="E-mail" required></v-text-field>
-                        <v-text-field class="input-group--focused" v-model="password" name="password"
+                        <v-text-field v-model="password" class="input-group--focused" name="password"
                             :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="rules.passwordRules"
                             :type="show1 ? 'text' : 'password'" label="Password" @click:append-inner="show1 = !show1"
                             required>
@@ -59,10 +59,8 @@ export default {
         }
     },
     methods: {
-        sumbitForm() {
+        SumbitForm() {
             const formData = {
-                first_name: this.firstname,
-                last_name: this.lastname,
                 username: this.email,
                 password: this.password,
             };
