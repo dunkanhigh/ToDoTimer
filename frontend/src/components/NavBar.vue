@@ -1,6 +1,6 @@
 <template>
-
-    <v-app-bar>
+    <p>dsds</p>
+    <!-- <v-app-bar>
         <v-spacer></v-spacer>
         <h3 class="font-weight-regular">FocusTimer</h3>
         <v-spacer></v-spacer>
@@ -8,9 +8,8 @@
         <v-spacer></v-spacer>
         <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Sing In</button>
         <button @click="$router.push('/sign-up')" class='button2'> Sing Up</button>
-
         <v-spacer></v-spacer>
-    </v-app-bar>
+    </v-app-bar> -->
 </template>
 <script>
 export default {

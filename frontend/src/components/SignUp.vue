@@ -1,5 +1,5 @@
 <template>
-    <div class="sign-up pt-8">
+    <div class="sign-up mt-8">
         <v-row justify="center">
             <v-col cols="12" xs="10" sm="5" md="3" lg="2">
                 <span class="text-h4" style="color: teal;">

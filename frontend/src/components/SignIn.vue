@@ -1,6 +1,5 @@
 <template>
     <div class="sign-in mt-8">
-
         <v-row justify="center">
             <v-col cols="12" xs="10" sm="5" md="3" lg="2">
                 <span class="text-h4" style="color: teal;">
