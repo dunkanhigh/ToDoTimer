@@ -7,9 +7,10 @@
                 </span>
                 <v-card class="pa-5" elevation="7">
                     <v-form v-on:submit.prevent="SumbitForm" ref="form" v-model="valid" lazy-validation>
-                        <!-- <v-text-field v-model="firstname" label="First Name"
+                        <v-text-field v-model="username" label="Username" :rules="rules.UsernameRules"></v-text-field>
+                        <v-text-field v-model="firstname" label="First Name"
                             :rules="rules.FirstNameRules"></v-text-field>
-                        <v-text-field v-model="lastname" label="Last Name" :rules="rules.LastNameRules"></v-text-field> -->
+                        <v-text-field v-model="lastname" label="Last Name" :rules="rules.LastNameRules"></v-text-field>
                         <v-text-field v-model="email" :rules="rules.emailRules" label="E-mail" required></v-text-field>
                         <v-text-field v-model="password" class="input-group--focused" name="password"
                             :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="rules.passwordRules"
@@ -32,7 +33,6 @@ export default {
     name: 'SignUp',
     data() {
         return {
-
             show1: false,
             valid: true,
             username: "",
@@ -43,7 +43,7 @@ export default {
             rules: {
                 passwordRules: [
                     p => !!p || 'Password is required',
-                    p => (p && 5 <= p.length) || 'Name must be more than 5 characters',
+                    p => (p && 6 <= p.length) || 'Name must be more than 5 characters',
                 ],
                 emailRules: [
                     v => !!v || 'E-mail is required',
@@ -55,14 +55,21 @@ export default {
                 LastNameRules: [
                     n => !!n || 'Last Name is required'
                 ],
+                UsernameRules: [
+                    u => !!u || 'Username is required',
+                    u => //.test(u) || 'Username must contain only letters and digits',
+                ]
             }
         }
     },
     methods: {
         SumbitForm() {
             const formData = {
-                username: this.email,
+                first_name: this.firstname,
+                last_name: this.lastname,
+                email: this.email,
                 password: this.password,
+                username: this.username,
             };
             axios
                 .post('/api/v1/users/', formData)
