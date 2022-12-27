@@ -57,7 +57,7 @@ export default {
                 ],
                 UsernameRules: [
                     u => !!u || 'Username is required',
-                    u => //.test(u) || 'Username must contain only letters and digits',
+                    u => /^[a-zA-Z0-9_.]{1,30}$/.test(u) || 'Username must contain only letters and digits',
                 ]
             }
         }
