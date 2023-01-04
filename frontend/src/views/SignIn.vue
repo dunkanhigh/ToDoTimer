@@ -7,7 +7,7 @@
                 </span>
                 <v-card class="pa-5" elevation="7">
                     <v-form v-on:submit.prevent="SumbitForm" v-model="valid" lazy-validation>
-                        <v-text-field v-model="email" label="E-mail" required :rules="emailRules"></v-text-field>
+                        <v-text-field v-model="username" label="Username" required></v-text-field>
                         <v-text-field v-model="password" label="Password"
                             :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" required
                             :type="show1 ? 'text' : 'password'" :rules="passwordRules"
@@ -45,7 +45,7 @@ export default {
     methods: {
         SumbitForm() {
             const formData = {
-                username: this.email,
+                username: this.username,
                 password: this.password,
             };
             axios
