@@ -1,5 +1,5 @@
 <template>
-    <button @click="SubmitForm" class="button">Logout</button>
+    <button @click.prevent="SubmitForm" class="button">Logout</button>
 </template>
 <script>
 import axios from 'axios';
@@ -9,7 +9,7 @@ export default {
     methods: {
         SubmitForm() {
             axios
-                .post('/token/logout/')
+                .post('/api/v1/token/logout/')
                 .then(response => {
                     this.$store.commit('removeToken')
                     axios.defaults.headers.common['Authorizations'] = ''

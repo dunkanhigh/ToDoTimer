@@ -5,15 +5,14 @@
         <v-spacer></v-spacer>
         <h3 class="font-weight-regular">ToDos</h3>
         <v-spacer></v-spacer>
+        <LogOut />
         <div v-if="this.$store.state.isAuthenticated">
-            <p>isAuthenticated</p>
+            <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Sing In</button>
+            <button @click="$router.push('/sign-up')" class='button2'> Sing Up</button>
+
         </div>
         <div v-else>
         </div>
-        <!-- <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Logout</button> -->
-        <LogOut />
-        <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Sing In</button>
-        <button @click="$router.push('/sign-up')" class='button2'> Sing Up</button>
         <v-spacer></v-spacer>
     </v-app-bar>
 </template>
