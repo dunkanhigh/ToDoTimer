@@ -6,13 +6,12 @@
         <h3 class="font-weight-regular">ToDos</h3>
         <v-spacer></v-spacer>
         <LogOut />
-        <div v-if="this.$store.state.isAuthenticated">
-            <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Sing In</button>
-            <button @click="$router.push('/sign-up')" class='button2'> Sing Up</button>
-
-        </div>
+        <div v-if="this.$store.state.isAuthenticated">isAuthenticated</div>
         <div v-else>
         </div>
+        <button style="margin-right:2px ;" @click="$router.push('/sign-in')" class='button1'> Sing In</button>
+        <button @click="$router.push('/sign-up')" class='button2'> Sing Up</button>
+
         <v-spacer></v-spacer>
     </v-app-bar>
 </template>

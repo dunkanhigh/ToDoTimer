@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="SubmitForm" class="button">Logout</button>
+    <button v-on:click="LogOut" class="button">Logout</button>
 </template>
 <script>
 import axios from 'axios';
@@ -7,7 +7,7 @@ import axios from 'axios';
 export default {
     name: 'LogOut',
     methods: {
-        SubmitForm() {
+        LogOut() {
             axios
                 .post('/api/v1/token/logout/')
                 .then(response => {
